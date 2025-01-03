@@ -9,7 +9,7 @@
 
 ## Configuration
 
-* Install the plugin into UCRM and enable it. I.e. download the plugin [zip file]() and upload it to UCRM in System > Plugins.
+* Install the plugin into UCRM and enable it. I.e. download the plugin [zip file](https://github.com/Lifrack/UCRM-plugins/blob/master/plugins/sms-masivos/sms-masivos.zip) and upload it to UCRM in System > Plugins.
 * Keep execution period at "don't execute automatically" - the plugin will react to webhook events.
 * Set up with data which you obtain from [smsmasivos.com.mx](https://app.smsmasivos.com.mx/restapi):
    * API Key
