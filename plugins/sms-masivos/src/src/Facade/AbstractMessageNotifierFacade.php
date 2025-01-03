@@ -8,7 +8,7 @@ use SmsNotifier\Data\NotificationData;
 use SmsNotifier\Factory\MessageTextFactory;
 use SmsNotifier\Service\Logger;
 use SmsNotifier\Service\SmsNumberProvider;
-use Twilio\Exceptions\HttpException;
+//use Twilio\Exceptions\HttpException;
 
 /*
  * send message to client's number
@@ -55,17 +55,18 @@ abstract class AbstractMessageNotifierFacade
             $this->logger->info('No text configured for event: ' . $notificationData->eventName);
             return;
         }
-
+    
         try {
             $this->sendMessage($notificationData, $clientSmsNumber, $messageBody);
-        } catch (HttpException $httpException) {
-            $this->logger->error($httpException->getCode() . ' ' . $httpException->getMessage());
+        } catch (\Exception $exception) {  // Catch general exeptions.
+            $this->logger->error($exception->getCode() . ' ' . $exception->getMessage());
         }
     }
+    
 
     /**
      * implement in subclass with the specific messaging provider
-     * @see TwilioNotifierFacade::sendMessage()
+     * @see SMSMasivosNotifierFacade::sendMessage()
      */
     abstract protected function sendMessage(
         NotificationData $notificationData,

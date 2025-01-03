@@ -1,20 +1,18 @@
-# SMS notifier - Twilio
+# This plugin is a Fork from SMS notifier - Twilio for sends SMS notifications via smsmasivos.com.mx.
+
+# SMS notifier - smsmasivos.com.mx
 
 * This plugin sends SMS notifications to clients.
 * SMS is triggered by an event which happened in UCRM, e.g. new invoice has been issued, or client's sevice became suspended.
 * It only sends SMS to clients having a phone number set in their contacts details.
-* [Twilio](https://www.twilio.com/) account is required to access its API.
+* [smsmasivos.com.mx](https://www.smsmasivos.com.mx/) account is required to access its API.
 
 ## Configuration
 
-* Install the plugin into UCRM and enable it. I.e. download the plugin [zip file](https://github.com/Ubiquiti-App/UCRM-plugins/raw/master/plugins/sms-twilio/sms-twilio.zip) and upload it to UCRM in System > Plugins.
+* Install the plugin into UCRM and enable it. I.e. download the plugin [zip file]() and upload it to UCRM in System > Plugins.
 * Keep execution period at "don't execute automatically" - the plugin will react to webhook events.
-* Set up with data which you obtain from [Twilio Console](https://twilio.com/console):
-   * Account SID
-   * Auth Token
-   * SMS number to send from
-    
-Note: there are two sets of credentials available, the default ("LIVE credentials") for actual use and [test credentials](https://www.twilio.com/console/project/settings) for development.
+* Set up with data which you obtain from [smsmasivos.com.mx](https://app.smsmasivos.com.mx/restapi):
+   * API Key
    
 * Customize the texts you wish to send to a client when an event happens
    * Each event has its own row
@@ -29,7 +27,7 @@ Note: there are two sets of credentials available, the default ("LIVE credential
 ## Usage
 * In UCRM admin, go to System / Webhooks / Endpoints
 * Click Test Endpoint
-* Go to System / Plugins / SMS notifications via Twilio
+* Go to System / Plugins / SMS notifications via smsmasivos.com.mx
 * In the log output, you'll see `Webhook test successful.`
 
 ## Variables replaced
@@ -203,7 +201,7 @@ Client variables are replaced always; payment invoice and service only with the 
 ## Developers
 * This plugin is MIT-licensed and can be used by developers as a template for integrating with a different messaging solution:
   * Create a new plugin based on this one
-  * Replace the TwilioNotifierFacade and any references to it with a different class which extends AbstractMessageNotifierFacade
+  * Replace the SMSMasivosNotifierFacade and any references to it with a different class which extends AbstractMessageNotifierFacade
   * Update libraries in composer.json as needed
   * Communicate with the remote system in the sendMessage() function
   * Preferably also change the SmsNotifier namespace to some other (not strictly necessary).

@@ -1,34 +1,31 @@
 {
   "version": "1",
   "information": {
-    "name": "sms-twilio",
-    "displayName": "SMS notifications via Twilio",
-    "description": "This plugin sends SMS notifications via Twilio. NOTE: only phone numbers in the international format can be used, e.g. +155 555 1234",
-    "url": "https://github.com/Ubiquiti-App/UCRM-plugins/tree/master/plugins/sms-twilio",
-    "version": "1.2.4",
+    "name": "smsmasivos",
+    "displayName": "SMS notifications via smsmasivos",
+    "description": "This plugin is a Fork from SMS notifier - Twilio for sends SMS notifications via smsmasivos.com.mx.",
+    "url": "https://github.com/Lifrack/UCRM-plugins/tree/master/plugins/sms-masivos",
+    "version": "1.2.5",
     "unmsVersionCompliancy": {
       "min": "2.1.0",
       "max": null
     },
-    "author": "Ubiquiti Networks, Inc."
+    "author": [
+      "Librandon Jesus Vargas Villegas",
+      "Ubiquiti Networks, Inc."
+    ]
   },
   "configuration": [
     {
-      "key": "twilioAccountSid",
-      "label": "Twilio Account Sid",
-      "description": "Account SID obtained from twilio.com/console",
+      "key": "smsMasivosApiKey",
+      "label": "SMS Masivos API Key",
+      "description": "Auth Token obtained from https://app.smsmasivos.com.mx/restapi",
       "required": 1
     },
     {
-      "key": "twilioAuthToken",
-      "label": "Twilio Auth Token",
-      "description": "Auth Token obtained from twilio.com/console",
-      "required": 1
-    },
-    {
-      "key": "twilioSmsNumber",
-      "label": "Twilio SMS number",
-      "description": "A Twilio phone number you purchased at twilio.com/console",
+      "key": "smsMasivosCountryCode",
+      "label": "SMS Masivos Country Code",
+      "description": "It is requested for standardization purposes that the code 52, which corresponds to Mexico, or 1 for the USA.",
       "required": 1
     },
     {

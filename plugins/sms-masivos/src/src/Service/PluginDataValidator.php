@@ -31,13 +31,18 @@ class PluginDataValidator
     {
         $pluginData = $this->optionsManager->load();
         $valid = true;
-        if (empty($pluginData->twilioAccountSid)) {
-            $this->errors[] = 'Not valid configuration: Twilio Account SID must be configured';
+        if (empty($pluginData->smsMasivosApiKey)) {
+            $this->errors[] = 'Not valid configuration: SMS MASIVOS Account API KEY must be configured';
             $valid = false;
         }
 
-        if (empty($pluginData->twilioAuthToken)) {
-            $this->errors[] = 'Not valid configuration: Twilio Auth Token must be configured';
+        if (empty($pluginData->smsMasivosCountryCode)) {
+            $this->errors[] = 'Not valid configuration: SMS MASIVOS Country Code must be configured';
+            $valid = false;
+        }
+
+        if (!preg_match('/^\d{1,3}$/', $pluginData->smsMasivosCountryCode)) {
+            $this->errors[] = 'Not valid configuration: SMS MASIVOS Country Code must be a valid number.';
             $valid = false;
         }
 
